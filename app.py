@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, render_template
+from scrape.base import web_scrape, sort_data
 
 app = Flask(__name__)
 
@@ -11,6 +12,16 @@ def get_statistics():
    ]
    return jsonify(data)
 
+"""
+@app.route('/api/statistics/rankings', methods=['GET'])
+def get_statistics():
+   # Carregar os dados de web scraping
+   data = scrape_all_projects():
+
+   # Retornar os dados em formato JSON
+   return jsonify(sorted_data)
+"""
+
 @app.route('/api/statistics/all', methods=['GET'])
 def get_project(project_id):
    projects = {
@@ -22,7 +33,7 @@ def get_project(project_id):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+   return render_template('index.html')
 
 
 if __name__ == "__main__":
