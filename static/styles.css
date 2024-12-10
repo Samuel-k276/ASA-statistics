@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background: linear-gradient(135deg, #f0f8ff, #add8e6); /* Cool gradient background */
+   color: #333;
+}
+
+
+/* Navigation Bar */
+.nav {
+   display: flex;
+   justify-content: center; /* Center align navigation items */
+   background-color: #ffffffd9; /* Slightly transparent white */
+   padding: 15px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+   position: sticky; /* Keeps the nav bar visible while scrolling */
+   top: 0;
+}
+
+.nav a {
+   margin: 0 20px;
+   text-decoration: none;
+   color: #0056b3; /* Blue shade for links */
+   font-weight: bold;
+   transition: color 0.3s ease;
+}
+
+.nav a:hover {
+   color: #003366; /* Darker blue on hover */
+}
+
+/* Content Section */
+.content {
+   max-width: 800px;
+   margin: 40px auto; /* Center content horizontally */
+   padding: 20px;
+   background: #ffffffcc; /* Slightly transparent white */
+   border-radius: 10px; /* Rounded corners */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Project Section */
+.project {
+   display: none;
+}
+
+.project.active {
+   display: block;
+}
+
+/* Centered Title */
+h1 {
+   text-align: center;
+   font-size: 2.5rem;
+   color: #003366;
+   margin-bottom: 20px;
+}
+
+p {
+   text-align: justify; /* Makes text easier to read */
+   line-height: 1.6;
+}
+
+/* Add some spacing for smaller screens */
+@media (max-width: 768px) {
+   .nav {
+       flex-wrap: wrap;
+   }
+
+   .nav a {
+       margin: 10px;
+   }
+
+   .content {
+       margin: 20px;
+       padding: 15px;
+   }
+
+   h1 {
+       font-size: 2rem;
+   }
+}
+
+
+/* Centraliza todas as tabelas */
+table {
+   margin: 20px auto; /* Centraliza todas as tabelas horizontalmente */
+   width: 85%; /* Define uma largura maior para todas as tabelas */
+   border-collapse: collapse; /* Remove os espaços entre as bordas das células */
+   background-color: #fff; /* Fundo branco para as tabelas */
+   border-radius: 8px; /* Bordas arredondadas para um visual mais suave */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+   overflow: hidden; /* Garante que o conteúdo não saia das bordas arredondadas */
+}
+
+/* Estilo das células de cabeçalho */
+th {
+   background-color: #4CAF50; /* Cor de fundo mais viva para o cabeçalho */
+   color: white; /* Cor do texto no cabeçalho */
+   padding: 12px 20px; /* Espaçamento interno nas células do cabeçalho */
+   text-align: left; /* Alinha o texto à esquerda no cabeçalho */
+   font-size: 1.1rem; /* Fonte maior no cabeçalho */
+   font-weight: bold; /* Negrito para o cabeçalho */
+   text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+
+/* Estilo das células de dados */
+td {
+   padding: 10px 20px; /* Espaçamento interno nas células de dados */
+   text-align: left; /* Alinha o texto à esquerda nas células */
+   border-bottom: 1px solid #ddd; /* Linha suave abaixo de cada célula */
+}
+
+/* Estilo das linhas alternadas para uma melhor legibilidade */
+tr:nth-child(even) {
+   background-color: #f9f9f9; /* Cor de fundo alternada para as linhas */
+}
+
+tr:hover {
+   background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para a tabela quando sem dados */
+tbody.empty-table {
+   text-align: center; /* Centraliza o texto na tabela vazia */
+   font-style: italic; /* Deixa o texto em itálico */
+   color: #888; /* Cor mais suave para indicar que não há dados */
+}
+
+/* Adiciona uma borda fina à tabela para uma separação mais nítida */
+table, th, td {
+   border: 1px solid #ddd;
+}
+
+/* Estilo para o título da tabela */
+h3 {
+   font-size: 1.5rem;
+   color: #333;
+   text-align: center; /* Centraliza o título */
+   margin-bottom: 15px;
+}

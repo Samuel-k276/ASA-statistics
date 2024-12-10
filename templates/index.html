@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Estatísticas</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+   <nav class="nav">
+      <a href="#" onclick="showProject('project1')">Projeto 1</a>
+      <a href="#" onclick="showProject('project2')">Projeto 2</a>
+      <a href="#" onclick="showProject('project3')">Projeto 3</a>
+   </nav>
+   <div class="content">
+      <div id="project1" class="project">
+         <h1>Projeto 1</h1>
+         <p>Estatísticas do Projeto 1.</p>
+      </div>
+      <div id="project2" class="project active">
+         <h1>Projeto 2</h1>
+         <p>Estatísticas do Projeto 2.</p>
+         <h3>Ranking</h3>
+         <table id="ranking-table-project2">
+            <thead>
+               <tr>
+                  <th>Group</th>
+                  <th>Result</th>
+                  <th>Time</th>
+               </tr>
+            </thead>
+            <tbody></tbody>
+         </table>    
+      </div>
+      <div id="project3" class="project">
+         <h1>Projeto 3</h1>
+         <p>Estatísticas do Projeto 3.</p>
+      </div>
+   </div>
+   <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
