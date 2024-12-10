@@ -27,13 +27,13 @@ def get_statistics():
 """
 
 @app.route('/api/statistics/all', methods=['GET'])
-def get_project(project_id):
+def get_projects():
    projects = {
       1: {"name": "Projeto 1", "stats": "Estatísticas do Projeto 1"},
       2: {"name": "Projeto 2", "stats": "Estatísticas do Projeto 2"},
       3: {"name": "Projeto 3", "stats": "Estatísticas do Projeto 3"},
    }
-   return jsonify(projects.get(project_id, {"error": "Projeto não encontrado"}))
+   return jsonify(projects)
 
 @app.route('/')
 def home():

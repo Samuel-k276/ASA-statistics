@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-def web_scrape(url):
+def web_scrape(url: str):
    # Sessão para persistir cookies
    with requests.Session() as session:
       # Fazer login, se necessário
@@ -31,7 +31,7 @@ def web_scrape(url):
 
    return data
 
-def time_str_to_int(time) -> int:
+def time_str_to_int(time: str) -> int:
    i_1 = time.find(":")
    i_2 = time[i_1+1:].find(":")+i_1+1
    print(i_1, i_2)   
@@ -45,9 +45,9 @@ def sort_data(data):
 
 def scrape_all_projects_rankings():
    data = {
-      "Project1": sort_data(web_scrape(url_1)),
-      "Project2": sort_data(web_scrape(url_2)),
-      "Project3": sort_data(web_scrape(url_3)),
+      "1": sort_data(web_scrape(url_1)),
+      "2": sort_data(web_scrape(url_2)),
+      "3": sort_data(web_scrape(url_3)),
    }
 
    return data
