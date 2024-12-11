@@ -132,7 +132,7 @@ tr:hover {
 .expand-button {
    margin-top: 3px;
    margin-bottom: 1px;
-   padding: 5px 12px; /* Botão menor, com padding reduzido */
+   /*padding: 5px 12px; /* Botão menor, com padding reduzido */
    font-size: 0.9rem; /* Reduzir o tamanho da fonte */
    color: #fff; /* Texto branco */
    background-color: #4CAF50; /* Cor verde, que combina com o cabeçalho da tabela */

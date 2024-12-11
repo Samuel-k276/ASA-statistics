@@ -1,10 +1,12 @@
+const selector = {'1': "#ranking-table-project1 tbody", '2': "#ranking-table-project2 tbody", '3': "#ranking-table-project3 tbody"};
+
 function showRanking(projectId) {
    // Esconde todas as seções de projeto
    const projects = document.querySelectorAll('.project');
    projects.forEach(project => project.classList.remove('active'));
 
    // Mostra apenas a seção do projeto selecionado
-   const selectedProject = document.getElementById(projectId);
+   const selectedProject = document.getElementById('project'+projectId);
    selectedProject.classList.add('active');
 
    // Mostra a tabela de ranking do projeto selecionado
@@ -12,53 +14,21 @@ function showRanking(projectId) {
 }
 
 function showRankingTable(projectId) {
-   switch (projectId) {
-      case 'project1':
-         showRanking1();
-         break;
-      case 'project2':
-         showRanking2();
-         break;
-      case 'project3':
-         showRanking3();
-         break;
-      default:
-         break;
-   }
-}
-
-function showRanking1() {
-   fetch('http://127.0.0.1:5000/api/statistics/ranking/proj1')
-         .then(response => response.json())
-         .then(data => {
-            const tableBody = document.querySelector("#ranking-table-project1 tbody");
-            tableBody.innerHTML = "";
-            data.forEach(row => {
-               const tr = document.createElement("tr");
-               tr.innerHTML = `
-                  <td>${row.group}</td>
-                  <td>${row.result}</td>
-                  <td>${row.time}</td>
-               `;
-               tableBody.appendChild(tr);
-            });
-         })
-         .catch(error => console.error('Error fetching data:', error));
-}
-
-function showRanking2() {
-   fetch('http://127.0.0.1:5000/api/statistics/ranking/proj2')
+   fetch('http://127.0.0.1:5000/api/statistics/raw')
       .then(response => response.json())
       .then(data => {
-         const tableBody = document.querySelector("#ranking-table-project2 tbody");
+         const tableBody = document.querySelector(selector[projectId]);
          const rowsToShow = 10; // Número inicial de linhas visíveis
          let expanded = false; // Estado para controle de exibição
 
          // Limpar tabela
          tableBody.innerHTML = "";
 
+         // Ordenar os dados e remover duplicatas
+         finalData = uniqueGroup(orderData(data[projectId]));
+
          // Adicionar as linhas da tabela
-         data.forEach((row, index) => {
+         finalData.forEach((row, index) => {
             const tr = document.createElement("tr");
             tr.innerHTML = `
                <td>${row.group}</td>
@@ -73,49 +43,61 @@ function showRanking2() {
          });
 
          // Adicionar botão Mostrar Mais/Menos
-         const existingButton = document.querySelector("#expand-button");
-         if (!existingButton) {
-            const button = document.createElement("button");
-            button.id = "expand-button";
-            button.textContent = "Mostrar Mais";
-            button.className = "expand-button";
-            button.onclick = () => {
-               expanded = !expanded; // Alterna estado
-
-               const hiddenRows = document.querySelectorAll("#ranking-table-project2 tbody .hidden");
-               hiddenRows.forEach(row => {
-                  row.style.display = expanded ? "table-row" : "none";
-               });
-
-               button.textContent = expanded ? "Mostrar Menos" : "Mostrar Mais";
-            };
-            tableBody.parentElement.appendChild(button);
-         }
+         createExpandButton(tableBody);
       })
       .catch(error => console.error('Error fetching data:', error));
 }
 
+// Create the Button
+function createExpandButton(tableBody) {
+   const existingButton = document.querySelector("#expand-button");
+   if (!existingButton) {
+      const button = document.createElement("button");
+      button.id = "expand-button";
+      button.textContent = "Mostrar Mais";
+      button.className = "expand-button";
+      let expanded = false; // Estado para controle de exibição
 
-function showRanking3() {
-   fetch('http://127.0.0.1:5000/api/statistics/ranking/proj3')
-      .then(response => response.json())
-      .then(data => {
-         const tableBody = document.querySelector("#ranking-table-project3 tbody");
-         tableBody.innerHTML = "";
-         data.forEach(row => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-               <td>${row.group}</td>
-               <td>${row.result}</td>
-               <td>${row.time}</td>
-         `;
-            tableBody.appendChild(tr);
+      button.onclick = () => {
+         expanded = !expanded; // Alterna estado
+
+         const hiddenRows = tableBody.querySelectorAll(".hidden");
+         hiddenRows.forEach(row => {
+            row.style.display = expanded ? "table-row" : "none";
          });
-      })
-      .catch(error => console.error('Error fetching data:', error));
+
+         button.textContent = expanded ? "Mostrar Menos" : "Mostrar Mais";
+      };
+      tableBody.parentElement.appendChild(button);
+   }
 }
 
+function timeToInt(time){
+   const [hours, minutes, seconds] = time.split(':').map(Number);
+   return hours*3600 + minutes*60 + seconds;
+}
+
+// First by result then by time
+function orderData(data){
+   return data.sort((a, b) => {
+      if (a.result === b.result) {
+         return timeToInt(a.time) - timeToInt(b.time);
+      }
+      return b.result - a.result;
+   });
+}
+
+// Returns the data with a group only appearing once
+function uniqueGroup(data){
+   const unique = {};
+   data.forEach(row => {
+      if (!unique[row.group]) {
+         unique[row.group] = row;
+      }
+   });
+   return Object.values(unique);
+}
       
 document.addEventListener('DOMContentLoaded', () => {
-   showRanking('project2');
+   showRanking('2');
 });
