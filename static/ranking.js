@@ -51,19 +51,50 @@ function showRanking2() {
       .then(response => response.json())
       .then(data => {
          const tableBody = document.querySelector("#ranking-table-project2 tbody");
+         const rowsToShow = 10; // Número inicial de linhas visíveis
+         let expanded = false; // Estado para controle de exibição
+
+         // Limpar tabela
          tableBody.innerHTML = "";
-         data.forEach(row => {
+
+         // Adicionar as linhas da tabela
+         data.forEach((row, index) => {
             const tr = document.createElement("tr");
             tr.innerHTML = `
                <td>${row.group}</td>
                <td>${row.result}</td>
                <td>${row.time}</td>
-         `;
+            `;
+            if (index >= rowsToShow) {
+               // Esconde as linhas que excedem o limite inicial
+               tr.classList.add("hidden");
+            }
             tableBody.appendChild(tr);
          });
+
+         // Adicionar botão Mostrar Mais/Menos
+         const existingButton = document.querySelector("#expand-button");
+         if (!existingButton) {
+            const button = document.createElement("button");
+            button.id = "expand-button";
+            button.textContent = "Mostrar Mais";
+            button.className = "expand-button";
+            button.onclick = () => {
+               expanded = !expanded; // Alterna estado
+
+               const hiddenRows = document.querySelectorAll("#ranking-table-project2 tbody .hidden");
+               hiddenRows.forEach(row => {
+                  row.style.display = expanded ? "table-row" : "none";
+               });
+
+               button.textContent = expanded ? "Mostrar Menos" : "Mostrar Mais";
+            };
+            tableBody.parentElement.appendChild(button);
+         }
       })
       .catch(error => console.error('Error fetching data:', error));
 }
+
 
 function showRanking3() {
    fetch('http://127.0.0.1:5000/api/statistics/ranking/proj3')

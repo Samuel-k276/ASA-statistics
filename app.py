@@ -12,6 +12,15 @@ data = [
       {"group": "al031", "result": "1250", 'errors': "Runtime Error", "time": "00:85:30"},
       {"group": "al024", "result": "1750", 'errors': "Time Limit Exceeded", "time": "00:75:30"},
       {"group": "al024", "result": "1750", 'errors': "Time Limit Exceeded", "time": "12:75:30"},
+      {"group": "al101", "result": "1750", 'errors': "Compilation Error", "time": "00:45:30"},
+      {"group": "al211", "result": "1750", 'errors': "Compilation Error", "time": "00:65:30"},
+      {"group": "al321", "result": "1450", 'errors': "Runtime Error", "time": "00:75:30"},
+      {"group": "al431", "result": "1250", 'errors': "Runtime Error", "time": "00:85:30"},
+      {"group": "al005", "result": "1750", 'errors': "Compilation Error", "time": "00:45:30"},
+      {"group": "al016", "result": "1750", 'errors': "Compilation Error", "time": "00:65:30"},
+      {"group": "al027", "result": "1450", 'errors': "Runtime Error", "time": "00:75:30"},
+      {"group": "al038", "result": "1250", 'errors': "Runtime Error", "time": "00:85:30"},
+      
    ]
 
 # Load Ranking Statistics for Proj2

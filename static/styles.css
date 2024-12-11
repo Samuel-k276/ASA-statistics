@@ -93,6 +93,8 @@ table {
    border-radius: 8px; /* Bordas arredondadas para um visual mais suave */
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
    overflow: hidden; /* Garante que o conteúdo não saia das bordas arredondadas */
+   margin-bottom: 20px;
+   justify-content: center;
 }
 
 /* Estilo das células de cabeçalho */
@@ -120,6 +122,36 @@ tr:nth-child(even) {
 
 tr:hover {
    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+.hidden {
+   display: none;
+}
+
+/* Estilo para o botão de expandir/recolher */
+.expand-button {
+   margin-top: 3px;
+   margin-bottom: 1px;
+   padding: 5px 12px; /* Botão menor, com padding reduzido */
+   font-size: 0.9rem; /* Reduzir o tamanho da fonte */
+   color: #fff; /* Texto branco */
+   background-color: #4CAF50; /* Cor verde, que combina com o cabeçalho da tabela */
+   border: none; /* Remover borda */
+   border-radius: 4px; /* Borda arredondada */
+   cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+   transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+   position: relative; /* Posiciona o botão de forma relativa */
+   left: 560px; /* Distância de 10px da borda direita da tabela */
+}
+
+/* Efeito hover no botão */
+.expand-button:hover {
+   background-color: #45a049; /* Um tom mais escuro de verde ao passar o mouse */
+}
+
+/* Estilo para o texto "Mostrar Mais" */
+.expand-button:focus {
+   outline: none; /* Remove o contorno padrão ao clicar */
 }
 
 /* Estilo para a tabela quando sem dados */
