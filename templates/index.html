@@ -8,28 +8,28 @@
 </head>
 <body>
    <nav class="nav">
-      <a href="#" onclick="showProject('project1')">Projeto 1</a>
-      <a href="#" onclick="showProject('project2')">Projeto 2</a>
-      <a href="#" onclick="showProject('project3')">Projeto 3</a>
+      <a href="#" onclick="showRanking('project1')">Projeto 1</a>
+      <a href="#" onclick="showRanking('project2')">Projeto 2</a>
+      <a href="#" onclick="showRanking('project3')">Projeto 3</a>
    </nav>
    <div class="content">
       <div id="project1" class="project">
          <h1>Projeto 1</h1>
-         <p>Estatísticas do Projeto 1.</p>
-         <table id="ranking-table-project1"></table>
-            <thead>
-               <tr>
-                  <th>Group</th>
-                  <th>Result</th>
-                  <th>Time</th>
-               </tr>
-            </thead>
-            <tbody></tbody>
-         </table>
+         <p><em>No Data.</em></p>
       </div>
       <div id="project2" class="project active">
          <h1>Projeto 2</h1>
-         <p>Estatísticas do Projeto 2.</p>
+         <h3 id="RecordsTitle">Atuais Recordistas</h3>
+
+         <p id="groupWithTheMostSubmissions"></p>
+         <script src="{{ url_for('static', filename='number_submissions.js') }}"></script>
+
+         <p id="errorThatTerroziedTheMostGroups"></p>
+         <script src="{{ url_for('static', filename='errors.js') }}"></script>
+
+         <p id="lastFirstSubmission"></p>
+         <script src="{{ url_for('static', filename='last_delivery.js') }}"></script>
+
          <h3>Ranking</h3>
          <table id="ranking-table-project2">
             <thead>
@@ -40,23 +40,23 @@
                </tr>
             </thead>
             <tbody></tbody>
-         </table>    
+         </table> 
+
+         <h3>Errors Frequency</h3>
+         <canvas id="errorChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='errors.js') }}"></script>
+         
+         <h3>Submissions Frequency</h3>
+         <canvas id="submissionsChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='number_submissions.js') }}"></script>
       </div>
       <div id="project3" class="project">
          <h1>Projeto 3</h1>
-         <p>Estatísticas do Projeto 3.</p>
-         <table id="ranking-table-project3"></table>
-            <thead>
-               <tr>
-                  <th>Group</th>
-                  <th>Result</th>
-                  <th>Time</th>
-               </tr>
-            </thead>
-            <tbody></tbody>
-         </table>
+         <p><em>Not Available.</em></p>
       </div>
    </div>
-   <script src="{{ url_for('static', filename='script.js') }}"></script>
+   <script src="{{ url_for('static', filename='ranking.js') }}"></script>
 </body>
 </html>

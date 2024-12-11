@@ -1,5 +1,4 @@
-function showProject(projectId) {
-  
+function showRanking(projectId) {
    // Esconde todas as seções de projeto
    const projects = document.querySelectorAll('.project');
    projects.forEach(project => project.classList.remove('active'));
@@ -9,27 +8,26 @@ function showProject(projectId) {
    selectedProject.classList.add('active');
 
    // Mostra a tabela de ranking do projeto selecionado
-   showTable(projectId);
+   showRankingTable(projectId);
 }
 
-function showTable(projectId) {
-
+function showRankingTable(projectId) {
    switch (projectId) {
       case 'project1':
-         showProject1();
+         showRanking1();
          break;
       case 'project2':
-         showProject2();
+         showRanking2();
          break;
       case 'project3':
-         showProject3();
+         showRanking3();
          break;
       default:
          break;
    }
 }
 
-function showProject1() {
+function showRanking1() {
    fetch('http://127.0.0.1:5000/api/statistics/ranking/proj1')
          .then(response => response.json())
          .then(data => {
@@ -48,7 +46,7 @@ function showProject1() {
          .catch(error => console.error('Error fetching data:', error));
 }
 
-function showProject2() {
+function showRanking2() {
    fetch('http://127.0.0.1:5000/api/statistics/ranking/proj2')
       .then(response => response.json())
       .then(data => {
@@ -67,7 +65,7 @@ function showProject2() {
       .catch(error => console.error('Error fetching data:', error));
 }
 
-function showProject3() {
+function showRanking3() {
    fetch('http://127.0.0.1:5000/api/statistics/ranking/proj3')
       .then(response => response.json())
       .then(data => {
@@ -88,5 +86,5 @@ function showProject3() {
 
       
 document.addEventListener('DOMContentLoaded', () => {
-   showProject('project2');
+   showRanking('project2');
 });
