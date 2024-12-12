@@ -1,19 +1,25 @@
+let deliveriesChart;
+
 function getDeliveriesByTime(data, proj) {
-   d = data[proj];
-   let time = {};
-   d.forEach(row => {
-      t = timeToPoint(row.time);
-      if (t in time) {
-         time[t] += 1;
+   const deliveries = data[proj];
+   let times = {};
+   deliveries.forEach(row => {
+      const time = timeToPoint(row.time);
+      if (time === null)
+         return;
+      if (time in times) {
+         times[time] += 1;
       } else {
-         time[t] = 1;
+         times[time] = 1;
       }
    });
-   return time;
+   return times;
 }
 
 function timeToPoint(time) {
-   const [hours, minutes, seconds] = time.split(':').map(Number);
+   if (!time || typeof time !== 'string' || !time.includes(':'))
+      return null;
+   const [hours] = time.split(':').map(Number);
    return hours;
 }
 
@@ -29,7 +35,11 @@ function deliveryByTime(proj) {
          const labels = Object.keys(time);
          const values = Object.values(time);
 
-         new Chart(ctx, {
+         if (deliveriesChart) {
+            deliveriesChart.destroy();
+         }
+
+         deliveriesChart = new Chart(ctx, {
             type: 'bar',
             data: {
                labels: labels,
@@ -43,17 +53,10 @@ function deliveryByTime(proj) {
             },
             options: {
                scales: {
-                  x: {
-                     //type: 'linear',
-                     title: { text: 'Time', display: false },
-                     grid: {
-                        display: false
-                     },
-                  },
-                  y: {
-                     beginAtZero: true
-                  }
-               }
+                  x: { grid: { display: false } },
+                  y: { beginAtZero: true }
+               },
+               plugins: { legend: { display: false } }
             }
           });
       })

@@ -1,7 +1,8 @@
+
 function getSubmissionsByGroup(data, proj) {
-   d = data[proj];
+   const deliveries = data[proj];
    let group = {};
-   d.forEach(row => {
+   deliveries.forEach(row => {
       if (row.group in group) {
          group[row.group] += 1;
       } else {
@@ -11,7 +12,6 @@ function getSubmissionsByGroup(data, proj) {
    return group;
 }
 
-// Return the frequency of submissions
 function getSubmissionsFrequency(submissionsByGroup) {
    let frequencies = {};
    Object.values(submissionsByGroup).forEach(submissions => {
@@ -27,7 +27,7 @@ function getSubmissionsFrequency(submissionsByGroup) {
 function getGroupWithMostSubmissions(submissionsByGroup) {
    const maxSubmissions = Math.max(...Object.values(submissionsByGroup));
    const group = Object.keys(submissionsByGroup).find(key => submissionsByGroup[key] === maxSubmissions);
-   return { group, maxSubmissions };
+   return [ group, maxSubmissions ];
 }
 
 function fetchAndDisplaySubmissions(proj) {   
@@ -62,8 +62,7 @@ function fetchAndDisplaySubmissions(proj) {
                responsive: true,
                scales: {
                   x: { 
-                     title: { text: 'Number of Submissions', display: false },
-                     beginAtZero: true, // Make sure the x-axis starts at 0
+                     beginAtZero: true,
                      max: Math.ceil(Math.max(...frequencies)*1.1),
                      ticks: {
                         padding: 10, // Ajustar o padding dos ticks para criar espaço
@@ -72,11 +71,11 @@ function fetchAndDisplaySubmissions(proj) {
                   },
                   y: { 
                      title: { text: 'Number of Submissions', display: true },
-                     beginAtZero: true, // Make sure the x-axis starts at 0
-                     grid: { display: false }, // Hide the grid lines
+                     beginAtZero: true,
+                     grid: { display: false },
                      ticks: {
-                        padding: 5, // Ajustar o padding dos ticks para criar espaço
-                        stepSize: 1, // Garantir que as labels do eixo Y sejam inteiros
+                        padding: 5,
+                        stepSize: 1,
                      },
                   }
                },
@@ -85,7 +84,7 @@ function fetchAndDisplaySubmissions(proj) {
          });
          
          // Get the group with the most submissions
-         const { group, maxSubmissions } = getGroupWithMostSubmissions(submissionsByGroup);
+         const [ group, maxSubmissions ] = getGroupWithMostSubmissions(submissionsByGroup);
          document.getElementById('groupWithTheMostSubmissions').textContent =`Grupo com mais submissoes: ${group} com ${maxSubmissions} submissoes.`;
 
       })
