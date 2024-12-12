@@ -4,6 +4,9 @@ function getErrors(data, proj) {
    const deliveries = data[proj];
    let errors = {};
    deliveries.forEach(row => {
+      if (row.errors === "") {
+         return;
+      }
       if (row.errors in errors) {
          errors[row.errors] += 1;
       } else {
