@@ -55,6 +55,16 @@
          <canvas id="deliveryChart" width="400" height="200"></canvas>
          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
          <script src="{{ url_for('static', filename='delivery_by_time.js') }}"></script>
+
+         <h3>Resultados ao longo do Tempo</h3>
+         <canvas id="resultsTimeChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='result_by_time.js') }}"></script>
+
+         <h3>Distribuicao dos Resultados</h3>
+         <canvas id="resultsDistributionChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='result_distribution.js') }}"></script>
       </div>
       <div id="project3" class="project" data-param="3">
          <h1>Projeto 3</h1>
