@@ -14,7 +14,7 @@ function showRanking(projectId) {
 }
 
 function showRankingTable(projectId) {
-   fetch('http://127.0.0.1:5000/api/statistics/raw')
+   fetch("https://asa-statistics.onrender.com/api/statistics/raw") 
       .then(response => response.json())
       .then(data => {
          const tableBody = document.querySelector(selector[projectId]);

@@ -73,7 +73,7 @@ function getMedianResult(results) {
 
 
 function fetchAndDisplayResultsDistribution(proj) {
-   fetch("http://127.0.0.1:5000/api/statistics/raw") 
+   fetch("https://asa-statistics.onrender.com/api/statistics/raw") 
       .then(response => response.json())
       .then(data => {
          const results = getResultsDistributionChart(data, proj);

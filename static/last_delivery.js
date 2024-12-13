@@ -12,7 +12,7 @@ function orderDataByTime(data){
 
 
 function fetchAndDisplayTheChillestGroup(proj) {
-   fetch("http://127.0.0.1:5000/api/statistics/raw")
+   fetch("https://asa-statistics.onrender.com/api/statistics/raw") 
       .then(response => response.json())
       .then(data => {
 
