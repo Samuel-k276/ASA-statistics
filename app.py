@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template
 from scrape.base import scrape_2
-from scrape.login import login_data, url_2
+import os
 
 app = Flask(__name__)
 
@@ -20,4 +20,6 @@ def home():
 
 
 if __name__ == "__main__":
+   port = int(os.getenv("PORT", 5000))
+   app.run(debug=True, port=port, host="0.0.0.0")
    app.run(debug=True, port=5000, host="0.0.0.0")
