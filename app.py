@@ -4,8 +4,7 @@ from scrape.login import login_data, url_2
 
 app = Flask(__name__)
 
-with open("data.txt", "r") as f:
-   data = scrape_2()
+data = scrape_2()
 
 
 # Load Raw Data for Proj2
