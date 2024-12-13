@@ -1,6 +1,12 @@
+from dotenv import load_dotenv
+import os
+
+# Carrega as variáveis do .env
+load_dotenv()
+
 login_data = {
-   "username": "al019",
-   "password": "gm9P7Q"
+   "username": os.getenv("MOOSHAK_USERNAME"),
+   "password": os.getenv("MOOSHAK_PASSWORD"),
 }
 
 
