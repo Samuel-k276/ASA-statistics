@@ -62,6 +62,7 @@ function fetchAndDisplaySubmissions(proj) {
                responsive: true,
                scales: {
                   x: { 
+                     title: { text: 'Number of Groups', display: true },
                      beginAtZero: true,
                      max: Math.ceil(Math.max(...frequencies)*1.1),
                      ticks: {

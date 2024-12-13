@@ -5,8 +5,11 @@ function getBiggestResultForGroup(data, proj) {
    const deliveries = data[proj];
    let results = {};
    let notSubmitted = [];
-   for (let i = 0; i < 200; i++)
+   for (let i = 1; i <= 134; i++)
       notSubmitted.push(`al${i.toString().padStart(3, '0')}`);
+
+   for (let i = 1; i <= 74; i++)
+      notSubmitted.push(`tg${i.toString().padStart(3, '0')}`);
 
 
    deliveries.forEach(row => {
@@ -92,7 +95,7 @@ function fetchAndDisplayResultsDistribution(proj) {
             data: {
                labels: labels,
                datasets: [{
-                 label: 'Number of Deliveries',
+                 label: 'Number of Groups',
                  data: values,
                  backgroundColor: 'rgba(75, 192, 192, 0.2)',
                  borderColor: 'rgba(75, 192, 192, 1)',

@@ -59,7 +59,7 @@ function fetchAndDisplayErrors(proj) {
                   y: { 
                      title: { text: 'Frequency', display: true },
                      beginAtZero: true,
-                     max: Math.ceil(Math.max(...frequencies)*1.1),
+                     max: Math.ceil(Math.max(...frequencies)*1.1/4)*4,
                      ticks: {
                         padding: 10, // Ajustar o padding dos ticks para criar espaço
                         stepSize: Math.ceil(Math.max(...frequencies)*1.1/4), // Garantir que as labels do eixo Y sejam inteiros
