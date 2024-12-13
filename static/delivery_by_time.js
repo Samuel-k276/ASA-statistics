@@ -26,7 +26,7 @@ function timeToPoint(time) {
 // Criar um grafico de barras o numero de entregas por tempo
 function deliveryByTime(proj) {
    // Fetch the JSON data from the server
-   fetch("http://127.0.0.1:5000/api/statistics/raw") 
+   fetch("https://asa-statistics.onrender.com/api/statistics/raw") 
       .then(response => response.json())  // Parse the response as JSON
       .then(data => {
          const time = getDeliveriesByTime(data, proj);
