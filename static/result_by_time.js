@@ -3,17 +3,29 @@ let resultsByTimeChart;
 function getResultsByTime(data, proj) {
    const deliveries = data[proj];
    let rawResults = {};
+   let last_time = 0;
    deliveries.forEach(row => {
       const time = timeToPoint(row.time);
       if (time in rawResults) {
          rawResults[time] += parseInt(row.result);
       } else {
          rawResults[time] = parseInt(row.result);
+         last_time = time;
       }
    });
+   for (let i = 0; i < last_time; i++) {
+      if (!(i in rawResults)) {
+         rawResults[i] = 0;
+      }
+   }
+
    const frequencies = getDeliveriesByTime(data, proj);
    let results = {};
    for (const time in frequencies) {
+      if (frequencies[time] === 0) {
+         results[time] = 0;
+         continue;
+      }
       results[time] = Math.round(rawResults[time] / frequencies[time]);
    }
    return results;

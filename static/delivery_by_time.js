@@ -3,6 +3,7 @@ let deliveriesChart;
 function getDeliveriesByTime(data, proj) {
    const deliveries = data[proj];
    let times = {};
+   let last_time = 0;
    deliveries.forEach(row => {
       const time = timeToPoint(row.time);
       if (time === null)
@@ -11,8 +12,15 @@ function getDeliveriesByTime(data, proj) {
          times[time] += 1;
       } else {
          times[time] = 1;
+         last_time = time;
       }
    });
+   for (let i = 0; i < last_time; i++) {
+      if (!(i in times)) {
+         times[i] = 0;
+      }
+   }
+
    return times;
 }
 
