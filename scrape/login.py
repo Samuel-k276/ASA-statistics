@@ -1,4 +1,8 @@
 import os
+import dotenv
+
+dotenv.load_dotenv()
+
 
 login_data = {
    "username": os.getenv("MOOSHAK_USERNAME"),
@@ -6,8 +10,6 @@ login_data = {
 }
 
 
-url_1 = "https://mooshak.example.com/projeto1"
-url_2 = "https://acp.tecnico.ulisboa.pt/~mooshak/cgi-bin/execute/10496254549592852?command=listing&type=submissions&time=5&page=0&lines=200"
-url_3 = "https://mooshak.example.com/projeto3"
+url_2 = os.getenv("URL_PROJ2")
 
-login_url = "https://acp.tecnico.ulisboa.pt/~mooshak/cgi-bin/execute/10496254549592852?login"
+login_url = os.getenv("LOGIN_URL")
