@@ -67,10 +67,3 @@ def time_str_to_int(time: str) -> int:
 
 def scrape_2():
    return web_scrape(url_2)
-
-data = scrape_2()
-
-i = 0
-for d in data:
-   i += 1
-   print(i)
