@@ -1,7 +1,5 @@
 import os
-import dotenv
 
-dotenv.load_dotenv()
 
 
 login_data = {
