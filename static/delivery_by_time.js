@@ -21,9 +21,7 @@ function getDeliveriesByTime(data, proj) {
       }
    }
 
-   return Object.entries(times)
-   .sort((a, b) => a[0] - b[0])
-   .map(([key, value]) => ({ time: parseInt(key, 10), count: value }));
+   return times;
 }
 
 function timeToPoint(time) {
@@ -39,11 +37,11 @@ function deliveryByTime(proj) {
    fetch("https://asa-statistics.onrender.com/api/statistics/raw") 
       .then(response => response.json())  // Parse the response as JSON
       .then(data => {
-         const result = getDeliveriesByTime(data, proj);
+         const time = getDeliveriesByTime(data, proj);
          const ctx = document.getElementById('deliveryChart').getContext('2d');
 
-         const labels = result.map(item => item.time);
-         const values = result.map(item => item.count);
+         const labels = Object.keys(time);
+         const values = Object.values(time);
 
          if (deliveriesChart) {
             deliveriesChart.destroy();
@@ -63,7 +61,13 @@ function deliveryByTime(proj) {
             },
             options: {
                scales: {
-                  x: { grid: { display: false } },
+                  x: { 
+                     type: "linear",
+                     grid: { display: false },
+                     ticks: {
+                        stepSize: 1, // Garante espaçamento regular
+                     }
+                  },
                   y: { beginAtZero: true }
                },
                plugins: { legend: { display: false } }
