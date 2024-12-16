@@ -49,7 +49,7 @@ function deliveryByLanguage(proj) {
                      'black',
                   ],
                   borderColor: 'black',
-                  borderWidth: 1
+                  borderWidth: 0
                }]
             },
             options: {
