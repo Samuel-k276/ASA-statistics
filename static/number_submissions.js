@@ -71,6 +71,7 @@ function fetchAndDisplaySubmissions(proj) {
                      }
                   },
                   y: { 
+                     type: 'linear',
                      title: { text: 'Number of Submissions', display: true },
                      beginAtZero: true,
                      grid: { display: false },
