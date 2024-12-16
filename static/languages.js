@@ -65,12 +65,7 @@ function deliveryByLanguage(proj) {
                      padding: 20
                   }
                },
-               plugins: {
-                  title: {
-                     display: true,
-                     text: 'Deliveries by Language'
-                  }
-               }
+               plugins: { title: { display: false, } }
             }
          });
          
