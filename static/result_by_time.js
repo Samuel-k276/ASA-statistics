@@ -59,7 +59,13 @@ function resultsByTime(proj) {
             },
             options: {
                scales: {
-                  x: { grid: { display: false } },
+                  x: { 
+                     type: "linear",
+                     grid: { display: false },
+                     ticks: {
+                        stepSize: 1, // Garante espaçamento regular
+                     }
+                  },
                   y: { 
                      beginAtZero: true,
                      ticks: {
