@@ -21,7 +21,9 @@ function getDeliveriesByTime(data, proj) {
       }
    }
 
-   return times;
+   return Object.entries(times)
+   .sort((a, b) => a[0] - b[0])
+   .map(([key, value]) => ({ time: parseInt(key, 10), count: value }));
 }
 
 function timeToPoint(time) {
@@ -37,11 +39,11 @@ function deliveryByTime(proj) {
    fetch("https://asa-statistics.onrender.com/api/statistics/raw") 
       .then(response => response.json())  // Parse the response as JSON
       .then(data => {
-         const time = getDeliveriesByTime(data, proj);
+         const result = getDeliveriesByTime(data, proj);
          const ctx = document.getElementById('deliveryChart').getContext('2d');
 
-         const labels = Object.keys(time);
-         const values = Object.values(time);
+         const labels = result.map(item => item.time);
+         const values = result.map(item => item.count);
 
          if (deliveriesChart) {
             deliveriesChart.destroy();
