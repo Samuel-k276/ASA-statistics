@@ -4,6 +4,9 @@ function getLanguages(data, proj) {
    const deliveries = data[proj];
    let languages = {};
    deliveries.forEach(row => {
+      if (row.language === "") {
+         return;
+      }
       if (row.language in languages) {
          languages[row.language] += 1;
       } else {
