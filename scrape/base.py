@@ -50,7 +50,8 @@ def web_scrape(url: str):
                   errors = ""
                else:
                   errors = info
-               data.append({'group': group, 'result': result, 'errors': errors, 'time': time})
+               language = dados[5]
+               data.append({'group': group, 'result': result, 'errors': errors, 'time': time, 'language': language})
          if end == True:
             break
 
