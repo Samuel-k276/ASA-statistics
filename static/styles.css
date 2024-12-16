@@ -141,7 +141,7 @@ tr:hover {
    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
    position: relative; /* Posiciona o botão de forma relativa */
-   left: 560px; /* Distância de 10px da borda direita da tabela */
+   left: 70%; /* Distância de 10px da borda direita da tabela */
 }
 
 /* Efeito hover no botão */
