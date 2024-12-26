@@ -67,7 +67,7 @@ def time_str_to_int(time: str) -> int:
 
 
 def scrape_2():
-   with open("proj2_data.txt", "r") as f:
+   with open("scrape/proj2_data.txt", "r") as f:
       data = f.read()
       data = eval(data)
       return data["2"]
