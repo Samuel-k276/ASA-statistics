@@ -8,6 +8,6 @@ login_data = {
 }
 
 
-url_2 = os.getenv("URL_PROJ2")
+url_3 = os.getenv("URL_PROJ3")
 
 login_url = os.getenv("LOGIN_URL")

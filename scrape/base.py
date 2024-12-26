@@ -1,4 +1,4 @@
-from scrape.login import login_data, login_url, url_2
+from scrape.login import login_data, login_url, url_3
 import requests
 from bs4 import BeautifulSoup
 
@@ -67,4 +67,10 @@ def time_str_to_int(time: str) -> int:
 
 
 def scrape_2():
-   return web_scrape(url_2)
+   with open("proj2_data.txt", "r") as f:
+      data = f.read()
+      data = eval(data)
+      return data["2"]
+
+def scrape_3():
+   return web_scrape(url_3)
