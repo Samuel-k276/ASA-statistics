@@ -38,7 +38,7 @@ function getResultsDistributionChart(data, proj) {
          results["NA"] += 1;
          continue;
       }
-      results[Math.round(biggestByGroup[group]/100)] += 1;
+      results[Math.floor(biggestByGroup[group]/100)] += 1;
    }
    return results;
 }
