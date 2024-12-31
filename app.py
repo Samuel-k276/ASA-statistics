@@ -7,7 +7,7 @@ import time
 app = Flask(__name__)
 
 data_2 = scrape_2()
-#data_3 = scrape_3()
+data_3 = scrape_3()
 
 def continuous_scraping(interval=100):
    global data_3
