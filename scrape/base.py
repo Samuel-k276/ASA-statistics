@@ -43,8 +43,8 @@ def web_scrape(url: str):
                   continue
                result = dados[6].split(" ")[0] 
                time = dados[1]
-               a = time.find(":")
-               time = f"{int(time[:a]) - 122:02}:{time[a+1:]}"
+               #a = time.find(":")
+               #time = time
                info = " ".join(dados[6].split(" ")[1:])
                if info == "Accepted" or info == "Evaluating":
                   errors = ""

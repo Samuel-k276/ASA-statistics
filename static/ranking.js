@@ -99,5 +99,5 @@ function uniqueGroup(data){
 }
       
 document.addEventListener('DOMContentLoaded', () => {
-   showRanking('2');
+   showRanking('3');
 });
