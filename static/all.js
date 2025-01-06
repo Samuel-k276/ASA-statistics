@@ -9,33 +9,12 @@ import { fetchAndDisplayResultsDistribution } from './result_distribution.js';
 
 document.addEventListener('DOMContentLoaded', () => {
    showRanking('3');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
    deliveryByTime('3');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
    fetchAndDisplayErrors('3');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
    deliveryByLanguage('3');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
    fetchAndDisplayTheChillestGroup('3');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
    fetchAndDisplaySubmissions('3');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
    resultsByTime('3');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
    fetchAndDisplayResultsDistribution('3');
 });
 
