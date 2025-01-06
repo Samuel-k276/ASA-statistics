@@ -84,7 +84,7 @@ function fetchAndDisplayResultsDistribution(proj) {
          const average = getAverageResult(results);
          const median = getMedianResult(results);
 
-         const ctx = document.getElementById('resultsDistributionChart').getContext('2d');
+         const ctx = document.getElementById('resultsDistributionChart' + proj).getContext('2d');
 
          if (resultsDistributionChart) {
             resultsDistributionChart.destroy();

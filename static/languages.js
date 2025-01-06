@@ -23,7 +23,7 @@ function deliveryByLanguage(proj) {
       .then(response => response.json())  // Parse the response as JSON
       .then(data => {
          const laguages = getLanguages(data, proj);
-         const ctx = document.getElementById('languagesPieChart').getContext('2d');
+         const ctx = document.getElementById('languagesPieChart' + proj).getContext('2d');
 
          const labels = Object.keys(laguages);
          const values = Object.values(laguages);

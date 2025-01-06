@@ -36,7 +36,7 @@ function resultsByTime(proj) {
       .then(response => response.json())
       .then(data => {
          const time = getResultsByTime(data, proj);
-         const ctx = document.getElementById('resultsTimeChart').getContext('2d');
+         const ctx = document.getElementById('resultsTimeChart' + proj).getContext('2d');
 
          const labels = Object.keys(time);
          const values = Object.values(time);

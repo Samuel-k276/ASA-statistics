@@ -34,7 +34,7 @@ function fetchAndDisplayErrors(proj) {
          const errorTypes = Object.keys(errors);
          const frequencies = Object.values(errors);
 
-         const ctx = document.getElementById('errorChart').getContext('2d');
+         const ctx = document.getElementById('errorChart' + proj).getContext('2d');
 
          if (errorChart) {
             errorChart.destroy();

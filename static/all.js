@@ -8,14 +8,7 @@ import { resultsByTime } from './result_by_time.js';
 import { fetchAndDisplayResultsDistribution } from './result_distribution.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-   showRanking('3');
-   deliveryByTime('3');
-   fetchAndDisplayErrors('3');
-   deliveryByLanguage('3');
-   fetchAndDisplayTheChillestGroup('3');
-   fetchAndDisplaySubmissions('3');
-   resultsByTime('3');
-   fetchAndDisplayResultsDistribution('3');
+   show('3');
 });
 
 

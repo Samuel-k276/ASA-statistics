@@ -44,7 +44,7 @@ function fetchAndDisplaySubmissions(proj) {
          const frequencies = Object.values(submissions);
 
          // Create a bar chart using Chart.js
-         const ctx = document.getElementById('submissionsChart').getContext('2d');
+         const ctx = document.getElementById('submissionsChart' + proj).getContext('2d');
          new Chart(ctx, {
             type: 'bar',
             data: {
@@ -87,7 +87,7 @@ function fetchAndDisplaySubmissions(proj) {
          
          // Get the group with the most submissions
          const [ group, maxSubmissions ] = getGroupWithMostSubmissions(submissionsByGroup);
-         document.getElementById('groupWithTheMostSubmissions').textContent =`Grupo com mais submissoes: ${group} com ${maxSubmissions} submissoes.`;
+         document.getElementById('groupWithTheMostSubmissions' + proj).textContent =`Grupo com mais submissoes: ${group} com ${maxSubmissions} submissoes.`;
 
       })
       .catch(error => console.error('Error fetching the data:', error));

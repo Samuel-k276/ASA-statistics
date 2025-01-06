@@ -20,7 +20,7 @@ function fetchAndDisplayTheChillestGroup(proj) {
          const time = group.time;
          const groupId = group.group;
 
-         document.getElementById('lastFirstSubmission').textContent =`Grupo que deixa tudo para a última: ${groupId} entregou a ${time}.`;
+         document.getElementById('lastFirstSubmission' + proj).textContent =`Grupo que deixa tudo para a última: ${groupId} entregou a ${time}.`;
 
       })
       .catch(error => console.error('Error fetching the data:', error));

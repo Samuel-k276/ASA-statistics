@@ -38,7 +38,7 @@ function deliveryByTime(proj) {
       .then(response => response.json())  // Parse the response as JSON
       .then(data => {
          const time = getDeliveriesByTime(data, proj);
-         const ctx = document.getElementById('deliveryChart').getContext('2d');
+         const ctx = document.getElementById('deliveryChart' + proj).getContext('2d');
 
          const labels = Object.keys(time);
          const values = Object.values(time);
