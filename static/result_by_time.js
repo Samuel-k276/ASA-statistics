@@ -81,8 +81,3 @@ function resultsByTime(proj) {
       .catch(error => console.error('Error fetching data:', error));
 }
 
-
-document.querySelectorAll('.project').forEach(div => {
-   const param = div.dataset.param;
-   resultsByTime(param);
-});
