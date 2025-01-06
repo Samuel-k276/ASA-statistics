@@ -97,7 +97,3 @@ function uniqueGroup(data){
    });
    return Object.values(unique);
 }
-      
-document.addEventListener('DOMContentLoaded', () => {
-   showRanking('3');
-});
