@@ -5,28 +5,30 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Estatísticas</title>
    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   <script src="{{ url_for('static', filename='all.js') }}"></script>
 </head>
 <body>
    <nav class="nav">
-      <a href="#" onclick="show('1')">Projeto 1</a>
-      <a href="#" onclick="show('2')">Projeto 2</a>
-      <a href="#" onclick="show('3')">Projeto 3</a>
+      <a href="#" onclick="showRanking('1')">Projeto 1</a>
+      <a href="#" onclick="showRanking('2')">Projeto 2</a>
+      <a href="#" onclick="showRanking('3')">Projeto 3</a>
    </nav>
    <div class="content">
       <div id="project1" class="project" data-param="1">
          <h1>Projeto 1</h1>
-         <p>not available.</p>
+         <p><em>No Data.</em></p>
       </div>
-
-      <div id="project2" class="project" data-param="2">
+      <div id="project2" class="project active" data-param="2">
          <h1>Projeto 2</h1>
          <h3 id="RecordsTitle">Atuais Recordistas</h3>
 
-         <p id="groupWithTheMostSubmissions2"></p>
-         <p id="errorThatTerroziedTheMostGroups2"></p>
-         <p id="lastFirstSubmission2"></p>
+         <p id="groupWithTheMostSubmissions"></p>
+         <script src="{{ url_for('static', filename='number_submissions.js') }}"></script>
+
+         <p id="errorThatTerroziedTheMostGroups"></p>
+         <script src="{{ url_for('static', filename='errors.js') }}"></script>
+
+         <p id="lastFirstSubmission"></p>
+         <script src="{{ url_for('static', filename='last_delivery.js') }}"></script>
 
          <h3>Ranking</h3>
          <table id="ranking-table-project2">
@@ -39,32 +41,49 @@
             </thead>
             <tbody></tbody>
          </table>
-
          <h3>Erros</h3>
-         <canvas id="errorChart2" width="400" height="200"></canvas>
-
+         <canvas id="errorChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='errors.js') }}"></script>
+         
          <h3>Quantidade de Submissoes</h3>
-         <canvas id="submissionsChart2" width="400" height="200"></canvas>
+         <canvas id="submissionsChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='number_submissions.js') }}"></script>
 
          <h3>Linguagens de Programaçao</h3>
-         <canvas id="languagesPieChart2" width="300" height="300"></canvas>
+         <canvas id="languagesPieChart" width="300" height="300"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='languages.js') }}"></script>
 
          <h3>Entregas ao longo do Tempo</h3>
-         <canvas id="deliveryChart2" width="400" height="200"></canvas>
+         <canvas id="deliveryChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='delivery_by_time.js') }}"></script>
 
          <h3>Resultados ao longo do Tempo</h3>
-         <canvas id="resultsTimeChart2" width="400" height="200"></canvas>
+         <canvas id="resultsTimeChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='result_by_time.js') }}"></script>
 
          <h3>Distribuicao dos Resultados</h3>
-         <canvas id="resultsDistributionChart2" width="400" height="200"></canvas>
+         <canvas id="resultsDistributionChart" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='result_distribution.js') }}"></script>
       </div>
-      <div id="project3" class="project active" data-param="3">
+      <div id="project3" class="project" data-param="3">
+         <h1>Projeto 3</h1>
          <h1>Projeto 3</h1>
          <h3 id="RecordsTitle">Atuais Recordistas</h3>
 
-         <p id="groupWithTheMostSubmissions3"></p>
-         <p id="errorThatTerroziedTheMostGroups3"></p>
-         <p id="lastFirstSubmission3"></p>
+         <p id="groupWithTheMostSubmissions"></p>
+         <script src="{{ url_for('static', filename='number_submissions.js') }}"></script>
+
+         <p id="errorThatTerroziedTheMostGroups"></p>
+         <script src="{{ url_for('static', filename='errors.js') }}"></script>
+
+         <p id="lastFirstSubmission"></p>
+         <script src="{{ url_for('static', filename='last_delivery.js') }}"></script>
 
          <h3>Ranking</h3>
          <table id="ranking-table-project3">
@@ -77,22 +96,32 @@
             </thead>
             <tbody></tbody>
          </table>
-
          <h3>Erros</h3>
-         <canvas id="errorChart3" width="400" height="200"></canvas>
+         <canvas id="errorChartProject3" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='errors.js') }}"></script>
 
          <h3>Quantidade de Submissoes</h3>
-         <canvas id="submissionsChart3" width="400" height="200"></canvas>
+         <canvas id="submissionsChartProject3" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='number_submissions.js') }}"></script>
 
          <h3>Entregas ao longo do Tempo</h3>
-         <canvas id="deliveryChart3" width="400" height="200"></canvas>
+         <canvas id="deliveryChartProject3" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='delivery_by_time.js') }}"></script>
 
          <h3>Resultados ao longo do Tempo</h3>
-         <canvas id="resultsTimeChart3" width="400" height="200"></canvas>
+         <canvas id="resultsTimeChartProject3" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='result_by_time.js') }}"></script>
 
          <h3>Distribuicao dos Resultados</h3>
-         <canvas id="resultsDistributionChart3" width="400" height="200"></canvas>
+         <canvas id="resultsDistributionChartProject3" width="400" height="200"></canvas>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script src="{{ url_for('static', filename='result_distribution.js') }}"></script>
       </div>
    </div>
+   <script src="{{ url_for('static', filename='ranking.js') }}"></script>
 </body>
 </html>
