@@ -36,11 +36,7 @@ function fetchAndDisplayErrors(proj) {
 
          const ctx = document.getElementById('errorChart' + proj).getContext('2d');
 
-         if (errorChart) {
-            errorChart.destroy();
-         }
-
-         errorChart = new Chart(ctx, {
+         new Chart(ctx, {
             type: 'bar',
             data: {
                labels: errorTypes,
