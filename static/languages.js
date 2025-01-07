@@ -78,3 +78,7 @@ function deliveryByLanguage(proj) {
       .catch(error => console.error('Error fetching data:', error));
 }
 
+document.querySelectorAll('.project').forEach(div => {
+   const param = div.dataset.param; // Recupera o valor de 'data-param'
+   deliveryByLanguage(param); // Chama o script com o parâmetro
+});

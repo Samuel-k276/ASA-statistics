@@ -26,3 +26,8 @@ function fetchAndDisplayTheChillestGroup(proj) {
       .catch(error => console.error('Error fetching the data:', error));
 }
 
+document.querySelectorAll('.project').forEach(div => {
+   const param = div.dataset.param; // Recupera o valor de 'data-param'
+   fetchAndDisplayTheChillestGroup(param); // Chama o script com o parâmetro
+});
+
