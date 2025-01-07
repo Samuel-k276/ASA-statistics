@@ -32,3 +32,9 @@ function show(proj) {
    resultsByTime(proj);
    fetchAndDisplayResultsDistribution(proj);
 }
+
+
+document.querySelectorAll('.project').forEach(div => {
+   const param = div.dataset.param; // Recupera o valor de 'data-param'
+   show(param); // Chama o script com o parâmetro
+});
