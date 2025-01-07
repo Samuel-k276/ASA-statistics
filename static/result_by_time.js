@@ -31,7 +31,7 @@ function getResultsByTime(data, proj) {
    return results;
 }
 
-function resultsByTime(proj) {
+function fetchAnDisplayResultsByTime(proj) {
    fetch("https://asa-statistics.onrender.com/api/statistics/raw") 
       .then(response => response.json())
       .then(data => {
@@ -81,3 +81,7 @@ function resultsByTime(proj) {
       .catch(error => console.error('Error fetching data:', error));
 }
 
+document.querySelectorAll('.project').forEach(div => {
+   const param = div.dataset.param; // Recupera o valor de 'data-param'
+   fetchAnDisplayResultsByTime(param); // Chama o script com o parâmetro
+});

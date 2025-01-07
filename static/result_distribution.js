@@ -156,3 +156,8 @@ function fetchAndDisplayResultsDistribution(proj) {
       })
       .catch(error => console.error('Error fetching data:', error));
 }
+
+document.querySelectorAll('.project').forEach(div => {
+   const param = div.dataset.param; // Recupera o valor de 'data-param'
+   fetchAndDisplayResultsDistribution(param); // Chama o script com o parâmetro
+});

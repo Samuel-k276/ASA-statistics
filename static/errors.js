@@ -71,7 +71,7 @@ function fetchAndDisplayErrors(proj) {
          });
 
          const [mostCommonError, maxValue] = getMostCommonError(errors);
-         document.getElementById('errorThatTerroziedTheMostGroups').textContent =`Erro que aterrorizou mais grupos: "${mostCommonError}" com ${maxValue} incidencias.`;
+         document.getElementById('errorThatTerroziedTheMostGroups' + proj).textContent =`Erro que aterrorizou mais grupos: "${mostCommonError}" com ${maxValue} incidencias.`;
       })
       .catch(error => console.error('Error fetching the data:', error));
 }
